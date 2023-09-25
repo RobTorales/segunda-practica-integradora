@@ -7,7 +7,7 @@ const PRIVATE_KEY = "S3CR3T0";
 
 const router = express.Router();
 
-Router.POST("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     const {email, pass} = req.body;
 
     let user = await userModel.findOne({email:email});
@@ -17,7 +17,7 @@ Router.POST("/login", async (req, res) => {
     }
 
     let token = jwt.sign({email:email, password:pass, role:user.role}, PRIVATE_KEY, {expiresIn:"24h"});
-    res.cookies("robCookieToken", token, {maxAge:3600*1000, httpOnly:true});
+    res.cookie("robCookieToken", token, {maxAge:3600*1000, httpOnly:true});
 
     return res.redirect("/products");
 });
