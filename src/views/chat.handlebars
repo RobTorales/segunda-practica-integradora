@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row bg-white rounded pt-5 pb-5 shadow p-3 mb-5 bg-body-tertiary">
+        <h1 class="display-5 text-center mb-5">Burger Factory Chat</h1>
+        <div id="messages" class="col-md-4"></div>
+        <div class="col-md-4 offset-md-2">
+            <div class="mb-3">
+                <label for="user" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="user">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <input type="text" class="form-control" id="message">
+            </div>
+            <button type="button" class="boton" id="btnSendMessage"><p class="p">Enviar</p></button>    
+        </div>
+    </div>
+</div>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="js/chat.js"></script>

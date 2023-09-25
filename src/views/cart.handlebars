@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                {{#each products}}
+                    <tr>
+                        <td><img src="{{this.product.thumbnails}}" alt="{{this.product.title}}" width="48"></td>
+                        <td class="align-middle">{{this.product.title}}</td>
+                        <td class="align-middle">{{this.product.description}}</td>
+                        <td class="align-middle">${{this.product.price}}</td>
+                        <button class="boton" onclick="eliminarProducto('{{product.product._id}}')"><p class="p">Eliminar </p></button>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/cart.js"></script>

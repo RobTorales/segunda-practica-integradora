@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row rounded">
+        <div>
+                <ul class="nav nav-tabs justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark " aria-current="page" href="#">Todos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Regular</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Vegano</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Junior</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="#"><p class="p">Big Ligas</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Acompañantes</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Bebidas</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white  " href="#"><p class="p">Alcohol</p></a>
+                    </li>
+                    
+                </ul>
+        </div>
+        {{#each products.payload}}
+            <div class="col-md-4 bg-white pt-2 pb-2 shadow p-3 mb-5 bg-body-tertiary">
+                <div class="card border-0 mb-4">
+                    
+                    <div class="card-body text-center ">
+                        <a href="/products/{{this._id}}" class="text-decoration-none">
+                            <img src="{{this.thumbnails}}" class="img-fluid" alt="{{this.title}}">
+                        </a>
+                        <div>{{this.title}}</div>
+                        <p>${{this.price}}</p>
+                        <p><button class="boton" onclick="agregarProductoAlCarrito('{{product._id}}')"><p class="p">Agregar </p></button></p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {{#if products.hasPrevPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.prevLink}}"><<</a>
+                        </li>
+                    {{/if}}
+                    {{#if products.hasPrevPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.prevLink}}">{{products.prevPage}}</a>
+                        </li>    
+                    {{/if}}
+                    <li class="page-item">
+                        <a class="page-link">{{products.page}}</a>
+                    </li>
+                    {{#if products.hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.nextLink}}">{{products.nextPage}}</a>
+                        </li>    
+                    {{/if}}
+                    {{#if products.hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{products.nextLink}}">>></a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>

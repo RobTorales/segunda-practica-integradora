@@ -1,0 +1,33 @@
+<div class="container">
+    <div id="content" class="row "></div>
+    <div class="row my-5 bg-white rounded pt-5 pb-5 shadow p-3 mb-5 bg-body-tertiary">
+        <div class="col-md-9">
+            <h2>Agregar Producto</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Título</label>
+                <input type="text" class="form-control" id="title">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Imagen</label>
+                <input type="text" class="form-control" id="thumbnails">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="price">
+            </div>
+            <button type="button" class="boton" id="btnAgregarProducto"><p class="p">Agregar</p></button>
+        </div>
+        <div class="col-md-6">
+            <h2>Eliminar Producto</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">#Id del Producto</label>
+                <input type="text" class="form-control" id="idProduct">
+            </div>
+            <button type="button" class="boton" id="btnEliminarProducto"><p class="p">Eliminar</p></button>
+        </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>

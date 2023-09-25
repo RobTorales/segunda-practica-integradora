@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+.fondo{
+  background-image: url(https://images.unsplash.com/photo-1595757816291-ab4c1cba0fc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.p{
+  color: white ;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.boton{
+  border: 0.5px solid orange;
+  background-color: #F33117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  height: 55px;
+  width: 150px;
+  position: relative;
+  left: 100px;
+}
+
+.boton:hover{
+  border:none;
+  box-shadow: none;
+}
+
+.boton::before{
+  content:"";
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  background-image: conic-gradient(orange 20deg, transparent 120deg);
+  border-radius: 50%;
+  animation: Animate 1s linear infinite;
+}
+
+@keyframes Animate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform:  rotate(-360deg);
+  }
+}
+
+.boton::after{
+  content:"";
+  position:absolute;
+  height:55px;
+  width:150px;
+  background-color: #F33117;
+}
+
+.boton:hover:after{
+  height: 50px;
+  width: 145px;
+}
+
+.boton-github{
+  text-decoration: none;
+  color: white;
+}
