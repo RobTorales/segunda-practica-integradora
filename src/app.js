@@ -11,6 +11,7 @@ import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
 import sessionsRouter from "./routes/sessions.router.js";
 import viewsRouter from "./routes/views.router.js";
+import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
@@ -31,6 +32,7 @@ app.use(session({
     saveUninitialized:false
 }));
 initializePassport();
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
