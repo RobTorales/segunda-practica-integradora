@@ -1,26 +1,28 @@
 const registerUser = async () => {
-    let first_name = document.getElementById("first_name").value;
-    let last_name = document.getElementById("last_name").value;
-    let email = document.getElementById("email").value;
-    let age = document.getElementById("age").value;
-    let password = document.getElementById("password").value;
+    try {
+        let first_name = document.getElementById("first_name").value;
+        let last_name = document.getElementById("last_name").value;
+        let email = document.getElementById("email").value;
+        let age = document.getElementById("age").value;
+        let password = document.getElementById("password").value;
 
-    const user = {first_name, last_name, email, age, password};
+        const user = { first_name, last_name, email, age, password };
 
-    const response = await fetch("/api/sessions/register", {
-        method:"POST",
-        headers: {"Content-type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(user),
-    });
-    const data = await response.json();
+        const response = await fetch("/api/sessions/register", {
+            method: "POST",
+            headers: { "Content-type": "application/json; charset=UTF-8" },
+            body: JSON.stringify(user),
+        });
 
-    data.then(result => {
-        console.log(result);
-    })
+        const data = await response.json();
+        console.log(data);
 
-     if (data.status === "ok") {
-        location.href = "/login";
-    } 
+        if (data.status === "ok") {
+            location.href = "/login";
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error);
+    }
 }
 
 document.getElementById("btnRegister").onclick = registerUser;
